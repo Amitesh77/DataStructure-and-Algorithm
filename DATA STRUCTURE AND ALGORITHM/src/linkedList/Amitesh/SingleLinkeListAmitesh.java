@@ -146,7 +146,7 @@ public class SingleLinkeListAmitesh {
 	{
 		SingleNodeAmitesh tmpNode=head;
 		
-		int index=0;
+		//int index=0;
 		if(existsLinkedList())
 		{
 		for (int i = 0; i < getSize(); i++) {
@@ -171,6 +171,66 @@ public class SingleLinkeListAmitesh {
 		{
 			System.out.println("Linked List Doesnot exist");
 		}
+	}
+	
+	public void deletionofNode(int location)
+	{
+		
+		if(!existsLinkedList())
+		{
+			System.out.println("linked list does not exist. ");
+			return;
+		}
+		
+		else if(location==0)
+		{
+			head=head.getNext();
+			
+			setSize(getSize()-1);
+			
+			if(getSize()==0) //if it is the only node
+			{
+				tail=null;
+			}
+		}
+		
+		else if(location>=getSize())
+		{
+			SingleNodeAmitesh tempnode=head;
+			
+			for (int i = 0; i < size-1; i++) {
+				
+				tempnode=tempnode.getNext();//till 2nd last node 
+			}
+			
+			if(tempnode==head)  //if there  is only one node
+			{
+				tail=head=null;
+				
+				setSize(getSize()-1);
+				return;
+			}
+				tempnode.setNext(null);
+				tail=tempnode;
+				setSize(getSize()-1);
+			
+		}
+		
+		else
+		{
+			SingleNodeAmitesh tempnode=head;
+			
+			for (int i = 0; i <location-1; i++) {
+				
+				tempnode=tempnode.getNext();
+				
+			}
+			
+			tempnode.setNext(tempnode.getNext().getNext());
+			
+			setSize(getSize()-1);
+		}
+		
 	}
 	
 

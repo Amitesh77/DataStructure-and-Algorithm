@@ -20,6 +20,10 @@ public class SingleLinkedListAmiteshMain {
 		list.Traversal();
 		
 		list.SearchNode(67);
+		
+		list.deletionofNode(1);
+		
+		list.Traversal();
 	}
 
 }
